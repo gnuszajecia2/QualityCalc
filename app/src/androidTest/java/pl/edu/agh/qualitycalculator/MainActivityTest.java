@@ -61,13 +61,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void longMessage(){
-        onView(withId(R.id.etNum1)).perform(click()).perform(typeText("1"));
-        onView(withId(R.id.btnAdd)).perform(click());
-        onView(withId(R.id.tvResult)).check(matches(withText("Populate first two fields to perform +, -, * or /. \n Populate all three to calculate average.")));
-    }
-
-    @Test
     public void shortMessage(){
         onView(withId(R.id.etNum1)).perform(click()).perform(typeText("1"));
         onView(withId(R.id.etNum2)).perform(click()).perform(typeText("3"));

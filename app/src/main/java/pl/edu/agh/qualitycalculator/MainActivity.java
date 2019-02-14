@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         etNum1 = (EditText) findViewById(R.id.etNum1);
         etNum2 = (EditText) findViewById(R.id.etNum2);
-        etNum2 = (EditText) findViewById(R.id.etNum3);
+        etNum3 = (EditText) findViewById(R.id.etNum3);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnSub = (Button) findViewById(R.id.btnSub);
@@ -104,22 +104,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
             else {
                 num3 = Float.parseFloat(etNum3.getText().toString());
-            }}
-
-
-        try {
-            float result = calculations.calculate(selectedOperation, num1, num2, num3);
-            if (selectedOperation == Operation.AVERAGE) {
-                String verbalizedOperation = verbalizer.verbalize(selectedOperation, num1, num2, num3, result);
-                tvResult.setText(verbalizedOperation);
             }
-            else {
-                String verbalizedOperation = verbalizer.verbalize(selectedOperation, num1, num2, result);
-                tvResult.setText(verbalizedOperation);
-            }}
-        catch (Exception ex) {
-            tvResult.setText("An error occurred: " + ex.toString());
-        }
 
+            try {
+                float result = calculations.calculate(selectedOperation, num1, num2, num3);
+                if (selectedOperation == Operation.AVERAGE) {
+                    String verbalizedOperation = verbalizer.verbalize(selectedOperation, num1, num2, num3, result);
+                    tvResult.setText(verbalizedOperation);
+                }
+                else {
+                    String verbalizedOperation = verbalizer.verbalize(selectedOperation, num1, num2, result);
+                    tvResult.setText(verbalizedOperation);
+                }}
+            catch (Exception ex) {
+                tvResult.setText("An error occurred: " + ex.toString());
+            }
+        }
     }
 }
