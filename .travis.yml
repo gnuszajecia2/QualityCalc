@@ -32,11 +32,11 @@ before_script:
 - adb shell input keyevent 82 &
 
 script:
-- chmod +x ./gradlewF
+- chmod +x ./gradlew
 - ./gradlew jacocoTestReport
 - ./gradlew test
-- ./gradlew connectedAndroidTest
-- ./gradlew connectedCheck
+- ./gradlew connectedAndroidTest --stacktrace
+- ./gradlew connectedCheck --stacktrace
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
