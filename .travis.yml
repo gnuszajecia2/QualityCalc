@@ -35,8 +35,8 @@ script:
 - chmod +x ./gradlewF
 - ./gradlew jacocoTestReport
 - ./gradlew test
-- ./gradlew connectedAndroidTest --stacktrace
-- ./gradlew connectedCheck --stacktrace
+- ./gradlew connectedAndroidTest
+- ./gradlew connectedCheck
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
